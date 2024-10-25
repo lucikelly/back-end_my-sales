@@ -9,7 +9,7 @@ import { AppDataSource } from '@shared/typeorm/data-source';
 
 AppDataSource.initialize().then(async () => {
   const app = express();
-
+  
   app.use(cors());
   app.use(express.json());
 

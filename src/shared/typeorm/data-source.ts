@@ -1,8 +1,8 @@
-import 'reflect-metadata'
-import 'dotenv/config'
-import { DataSource } from 'typeorm'
+import 'reflect-metadata';
+import 'dotenv/config';
+import { DataSource } from 'typeorm';
 
-const port = process.env.PORT as number | undefined
+const port = Number(process.env.PORT) || undefined;
 
 export const AppDataSource = new DataSource({
   type: 'postgres',
@@ -11,6 +11,6 @@ export const AppDataSource = new DataSource({
   username: process.env.DB_USER,
   password: process.env.DB_PASS,
   database: process.env.DB_NAME,
-  entities: ['./src/modules/**/database/entities/*.{ts, js'],
-  migrations: ['./src/shared/typeorm/migrations/*.{ts, js}']
-});
+  entities: ['./src/modules/**/database/entities/*.{ts, js}'],
+  migrations: ['./src/shared/typeorm/migrations/*.{ts, js}'],
+})
