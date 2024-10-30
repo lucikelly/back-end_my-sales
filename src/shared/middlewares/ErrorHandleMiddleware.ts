@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from "express";
-import AppError from "../errors/AppError";
+import { NextFunction, Request, Response } from 'express';
+import AppError from '../errors/AppError';
 
 export default class ErrorHandleMiddleware {
   public static handleError(
@@ -7,13 +7,13 @@ export default class ErrorHandleMiddleware {
     _req: Request,
     res: Response,
     _next: NextFunction,
-
   ) {
+    console.log('erro', error);
     if (error instanceof AppError) {
       return res.status(error.statusCode).json({
         type: 'error',
-        message: error.message
-      })
+        message: error.message,
+      });
     }
 
     return res.status(500).json({
