@@ -1,4 +1,9 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from "typeorm";
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('products')
 export class Product {
@@ -18,5 +23,5 @@ export class Product {
   created_at: Date;
 
   @CreateDateColumn({ type: 'timestamp' })
-  updated: Date;
+  update_at: Date;
 }
