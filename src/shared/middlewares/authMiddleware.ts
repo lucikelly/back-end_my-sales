@@ -12,7 +12,7 @@ interface ITokenPayLoad {
 export default class AuthMiddleware {
   static execute(request: Request, response: Response, next: NextFunction): void {
     const authHeader = request.headers.authorization;
-
+    
     if (!authHeader) {
       throw new AppError('JWT Token is missing.', 401);
 
@@ -25,7 +25,7 @@ export default class AuthMiddleware {
       const { sub } = decodedToken as ITokenPayLoad;
 
       request.user = {
-        id: sub
+        id: sub,
       }
 
       return next()
