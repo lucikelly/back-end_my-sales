@@ -18,7 +18,7 @@ export default class ResetPasswordService {
     }
 
 
-    const user = await usersRepositories.findById(userToken.id)
+    const user = await usersRepositories.findById(userToken.user_id)
 
 
     if (!user) {
