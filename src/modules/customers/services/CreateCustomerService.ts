@@ -20,6 +20,8 @@ export  default class CreateCustomerService {
       email,
     });
 
+    await customerRepository.save(customer);
+
     return customer;
  }
 }
