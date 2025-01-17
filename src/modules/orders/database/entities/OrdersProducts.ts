@@ -8,12 +8,18 @@ export class OrdersProducts {
   id: number;
 
   @ManyToOne(() => Order, order => order.order_products)
-  @JoinColumn({name: 'order_id' })
+  @JoinColumn({ name: 'order_id' })
   order: Order;
 
+  @Column()
+  order_id: string;
+
   @ManyToOne(() => Product, product => product.order_products)
-  @JoinColumn({name: 'product_id'})
-  product: Product
+  @JoinColumn({ name: 'product_id' })
+  product: Product;
+
+  @Column()
+  product_id: string;
 
   @Column('decimal')
   price: number;
