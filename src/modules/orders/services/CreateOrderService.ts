@@ -45,7 +45,7 @@ export class CreateOrderService {
     );
     return existingProduct && existingProduct.quantity < product.quantity;
   });
-     console.log(quantityAvailable);
+    
 
     if (quantityAvailable.length) {
       throw new AppError(
