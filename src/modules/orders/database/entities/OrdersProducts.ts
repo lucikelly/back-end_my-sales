@@ -25,7 +25,7 @@ export class OrdersProducts {
   price: number;
 
   @Column('int')
-  quatity: number;
+  quantity: number;
 
   @CreateDateColumn()
   created_at: Date;
