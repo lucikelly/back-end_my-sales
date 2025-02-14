@@ -1,6 +1,6 @@
 import AppError from "@shared/errors/AppError";
-import { User } from "../database/entities/User";
-import { usersRepositories } from "../database/repositories/UsersRepositories";
+import { User } from '../infra/database/entities/User';
+import { usersRepositories } from '../infra/database/repositories/UsersRepositories';
 import uploadConfig from "@config/upload";
 import path from "path";
 import fs from 'fs'
@@ -17,7 +17,7 @@ export class UpdateUserAvatarService {
     if (!user) {
       throw new AppError('User not found', 404)
     }
-    
+
     if (user.avatar) {
       const userAvatarFilePath = path.join(uploadConfig.directory, user.avatar);
 

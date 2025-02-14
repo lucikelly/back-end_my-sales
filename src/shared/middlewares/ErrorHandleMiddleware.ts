@@ -8,7 +8,7 @@ export default class ErrorHandleMiddleware {
     res: Response,
     _next: NextFunction,
   ) {
-    //console.log('Error:', error);
+    console.log('Error:', error);
 
 
 
