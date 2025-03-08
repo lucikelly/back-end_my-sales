@@ -2,12 +2,8 @@ import AppError from "@shared/errors/AppError";
 import { Customer } from '../infra/database/entities/Customer';
 import { ICustomersRepository } from "../domain/repositories/ICustomersRepositories";
 import { inject, injectable } from "tsyringe";
+import { IUpdateCustomer } from "../domain/models/IUpdateCustomer";
 
-interface IUpdateCustomer {
-  id: number;
-  name: string;
-  email: string;
-}
 @injectable()
 export default class UpdateCustomerService {
   constructor(

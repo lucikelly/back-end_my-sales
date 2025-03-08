@@ -2,11 +2,9 @@ import AppError from "@shared/errors/AppError";
 import { Customer } from '../infra/database/entities/Customer';
 import { ICustomersRepository } from "../domain/repositories/ICustomersRepositories";
 import { inject, injectable } from "tsyringe";
+import { IShowCustomer } from "../domain/models/IShowCustomer";
 
-interface IShowCustomer {
-  id: number;
 
-}
 @injectable()
 
 export default class ShowCustomersService {
