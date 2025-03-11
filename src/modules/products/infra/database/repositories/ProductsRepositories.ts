@@ -6,7 +6,7 @@ interface IFindProducts {
   id: string
 }
 
-export const productsRepositories = AppDataSource.getRepository(Product).extend({
+const productsRepositories = AppDataSource.getRepository(Product).extend({
   async findByName(name: string): Promise<Product | null> {
     return this.findOneBy({ name });
   },
@@ -23,3 +23,4 @@ export const productsRepositories = AppDataSource.getRepository(Product).extend(
     return existentProducts;
   },
 });
+export default productsRepositories;

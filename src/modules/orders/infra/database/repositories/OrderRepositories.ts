@@ -15,7 +15,7 @@ export interface ICreateOrderProducts {
   quantity: number;
 }
 
-export const orderRepositories = AppDataSource.getRepository(Order).extend({
+ const OrderRepositories = AppDataSource.getRepository(Order).extend({
   async findById(id: number): Promise<Order | null> {
     const order = await this.findOne({
       where: { id },
@@ -35,4 +35,6 @@ export const orderRepositories = AppDataSource.getRepository(Order).extend({
 
     return order;
   },
-})
+ })
+
+export default OrderRepositories;
