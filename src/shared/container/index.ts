@@ -8,8 +8,9 @@ import { IUserTokensRepository } from '@modules/users/domain/repositories/IUserT
 import UserTokensRepository from '@modules/users/infra/database/repositories/UserTokensRepositories';
 import { IProductsRepository } from '@modules/products/domain/repositories/IProductsRepository';
 import ProductsRepository from '@modules/products/infra/database/repositories/ProductsRepositories';
-import  OrderRepositories  from '@modules/orders/infra/database/repositories/OrderRepositories';
 import { IOrdersRepository } from '@modules/orders/domain/repositories/IOrdersRepository';
+import OrderRepositories from '@modules/orders/infra/database/repositories/OrderRepositories';
+
 
 container.registerSingleton<ICustomersRepository>(
   'CustomersRepository',

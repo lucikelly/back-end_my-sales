@@ -1,12 +1,19 @@
-import { Customer } from "@modules/customers/infra/database/entities/Customer";
-import { CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { OrdersProducts } from "./OrdersProducts";
-
+import { Customer } from '@modules/customers/infra/database/entities/Customer';
+import {
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm';
+import OrdersProducts from './OrdersProducts';
 
 @Entity('orders')
-export class Order {
-  @PrimaryGeneratedColumn()
-  id: number;
+class Order {
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @ManyToOne(() => Customer)
   @JoinColumn({ name: 'customer_id' })
@@ -23,3 +30,5 @@ export class Order {
   @UpdateDateColumn()
   updated_at: Date;
 }
+
+export default Order;

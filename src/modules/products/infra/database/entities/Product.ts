@@ -1,10 +1,11 @@
-import { OrdersProducts } from '@modules/orders/infra/database/entities/OrdersProducts';
+import OrdersProducts from '@modules/orders/infra/database/entities/OrdersProducts';
 import {
   Column,
   CreateDateColumn,
   Entity,
   OneToMany,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('products')
@@ -27,6 +28,6 @@ export class Product {
   @CreateDateColumn({ type: 'timestamp' })
   created_at: Date;
 
-  @CreateDateColumn({ type: 'timestamp' })
-  update_at: Date;
+  @UpdateDateColumn({ type: 'timestamp' })
+  updated_at: Date;
 }

@@ -3,28 +3,34 @@ import 'express-async-errors';
 import express from 'express';
 import cors from 'cors';
 import { errors } from 'celebrate';
-import '@shared/container'
+import '@shared/container';
 
 import routes from './routes/index';
 import ErrorHandleMiddleware from '@shared/middlewares/ErrorHandleMiddleware';
 import { AppDataSource } from '@shared/infra/typeorm/data-source';
 import rateLimiter from '@shared/middlewares/rateLimiter';
 
-AppDataSource.initialize()
-  .then(async () => {
-    const app = express();
+const startServer = async () => {
+  await AppDataSource.initialize();
 
-    app.use(cors());
-    app.use(express.json());
+  const app = express();
 
-    app.use(rateLimiter);
-    app.use(routes);
-    app.use(errors());
-    app.use(ErrorHandleMiddleware.handleError);
+  app.use(cors());
+  app.use(express.json());
 
-    console.log('Connected to the database');
+  app.use(rateLimiter);
+  app.use(routes);
+  app.use(errors());
+  app.use(ErrorHandleMiddleware.handleError);
 
-    app.listen(3333, () => {
+  console.log('Connected to the database');
+
+  return app;
+};
+
+export default startServer()
+  .then(app => {
+   return app.listen(3333, () => {
       console.log('Server is running on port 3333! 🏆');
     });
   })
